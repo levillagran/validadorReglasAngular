@@ -1,4 +1,4 @@
-# ValidadorReglasAngular
+# Portotipo Validador de Reglas en Angular
 
 Este proyecto esta generado con [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
 
