@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <form #limitesForm = "ngForm" (ngSubmit)="establecerLimites(limitesForm)">
+                        <h4 class="card-title mb-2">Reglas:</h4>
+                        <h6 class="card-subtitle mb-2">Limites</h6>
+                        <div class="row mb-3">
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Inferior: &nbsp;&nbsp;</span>
+                                    <input name="inferior" type="number" class="form-control" [(ngModel)]="limites.inferior">
+                                </div>
+                    
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Superior: &nbsp;&nbsp;</span>
+                                    <input name="superior" type="number" class="form-control" [(ngModel)]="limites.superior">
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mb-2">Categorias</h6>
+                        <div class="row mb-3">
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Alto:&nbsp;&nbsp;</span>
+                                    <input name="nombre" type="text" class="form-control" [(ngModel)]="categorias[0].nombre">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Medio:&nbsp;&nbsp;</span>
+                                    <input name="nombre1" type="text" class="form-control" [(ngModel)]="categorias[1].nombre">
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Bajo:&nbsp;&nbsp;</span>
+                                    <input name="nombre2" type="text" class="form-control" [(ngModel)]="categorias[2].nombre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-sm btn-primary">Establecer</button>
+                        </div>
+                        <p>Reglas para segmentar los productos en categorias por su precio.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <form #productoForm = "ngForm" (ngSubmit)="guardarProducto(productoForm)">
+                        <h4 class="card-title mb-3">Nuevo producto</h4>
+                        <h6 class="card-subtitle mb-3">Producto:</h6>
+                        <div class="row mb-3">
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-lg has-validation">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Nombre:</span>
+                                    <input name="nombre" type="text" class="form-control" [(ngModel)]="producto.nombre">
+                                </div>
+                    
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">Precio:</span>
+                                    <input name="precio" type="number" class="form-control" [(ngModel)]="producto.precio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-sm btn-primary">Agregar</button>
+                        </div>
+                        <p>Agregar un producto a la tabla donde aparecera su categoria de acuerdo a las reglas.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Lista productos</h4>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th >#</th>
+                            <th >Nombre</th>
+                            <th >Precio</th>
+                            <th >Categoria</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor = "let producto of productos">
+                            <th >{{producto.id}}</th>
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td ><span class="badge rounded-pill bg-info text-light">{{categorias[producto.categoriaId - 1].nombre}}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
