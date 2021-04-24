@@ -2,7 +2,7 @@
 
 Este proyecto esta generado con [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
 
-## ejecutar proyecto
+## Ejecutar proyecto
 
 - Clonar el proyecto desde es repositorio o descargar el código
 - En la pantalla de comandos, ubicarse dentro de la carpeta del proyecto
